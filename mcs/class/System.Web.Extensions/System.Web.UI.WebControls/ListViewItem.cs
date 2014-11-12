@@ -34,7 +34,11 @@ using System.ComponentModel;
 namespace System.Web.UI.WebControls
 {
 	[ToolboxItemAttribute (false)]
+#if NET_4_0
+	public class ListViewItem : Control, INamingContainer, IDataItemContainer
+#else
 	public class ListViewItem : Control, INamingContainer
+#endif
 	{
 		internal ListViewItem ()
 			: this (ListViewItemType.DataItem)
@@ -61,6 +65,23 @@ namespace System.Web.UI.WebControls
 			get;
 			private set;
 		}
+		
+#if NET_4_0
+		public virtual object DataItem {
+			get;
+			set;
+		}
+		
+		public virtual int DataItemIndex {
+			get;
+			private set;
+		}
+		
+		public virtual int DisplayIndex {
+			get;
+			private set;
+		}
+#endif
 	}
 }
 #endif

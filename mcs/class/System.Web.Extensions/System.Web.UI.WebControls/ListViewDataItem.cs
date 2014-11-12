@@ -52,6 +52,7 @@ namespace System.Web.UI.WebControls
 			return base.OnBubbleEvent (source, e);
 		}
 		
+#if !NET_4_0
 		public virtual object DataItem {
 			get;
 			set;
@@ -66,6 +67,7 @@ namespace System.Web.UI.WebControls
 			get;
 			private set;
 		}
+#endif
 	}
 }
 #endif
